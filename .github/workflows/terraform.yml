@@ -26,26 +26,29 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
+    # Change working directory to 'terraform'
+    - name: Change Directory
+      run: cd terraform
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init terraform
+      run: terraform init
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS }}
 
     # Run terraform fmt to check whether the formatting of the files is correct
     - name: Terraform Format
-      run: terraform fmt -check terraform
+      run: terraform fmt -check
 
     # Run terraform plan
     - name: Terraform Plan
-      run: terraform plan terraform
+      run: terraform plan
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS }}
 
     # Run terraform apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve terraform
+      run: terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.TF_GOOGLE_CREDENTIALS }}
       
