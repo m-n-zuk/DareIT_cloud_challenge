@@ -1,0 +1,16 @@
+body {
+    background: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+    color: rgb(151, 29, 86);
+    text-align: center;
+}
+
+.paragraph {
+    color: rgb(95, 75, 146);
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: center;
+}
