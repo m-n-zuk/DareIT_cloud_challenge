@@ -36,6 +36,8 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+    
+    needs: terraform
 
     steps:
     - name: Checkout
