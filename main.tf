@@ -1,19 +1,19 @@
 # Define Kubernetes cluster
-resource "google_container_cluster" "cluster" {
+resource "google_container_cluster" "my_cluster" {
   name     = "my-cluster"
   location = "us-central1-a"
 
-  # Define node pool
   node_pool {
-    name = "my-node-pool"
-
-    # Specify node image
-    node_config {
-      image_type       = "COS_CONTAINERD"
-      image_family     = "cos-89-lts"
-      image_project_id = "cos-cloud"
+    name       = "default-pool"
+    node_count = 1
+    config {
+      machine_type = "n1-standard-1"
     }
   }
+
+  depends_on = [
+    google_project_service.container.googleapis,
+  ]
 }
 
 # # Define Kubernetes Deployment for website
