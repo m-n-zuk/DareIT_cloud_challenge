@@ -24,7 +24,7 @@ env:
   GKE_CLUSTER: dareit-cluster   
   GKE_ZONE: us-central1-c   
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
-  REPOSITORY: dareit-repository 
+  REPOSITORY: dareit-repo 
   IMAGE: static-site
 
 jobs:
