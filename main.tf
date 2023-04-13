@@ -36,52 +36,6 @@ resource "google_project_iam_member" "example" {
   member = "allUsers"
 }
 
-# # Define Kubernetes Deployment for website
-# resource "kubernetes_deployment" "website" {
-#   metadata {
-#     name = "website"
-#   }
-
-#   spec {
-#     replicas = 3 # Number of container replicas
-
-#     selector {
-#       match_labels = {
-#         app = "website"
-#       }
-#     }
-
-#     template {
-#       metadata {
-#         labels = {
-#           app = "website"
-#         }
-#       }
-
-#       spec {
-#         container {
-#           name  = "website"
-#           image = "gcr.io/my-project-id/website:latest" # Container image address in GCR
-
-#           # Mount Volume
-#           volume_mount {
-#             name      = "website-volume"
-#             mount_path = "/path/to/website" # Mount path to 'website' folder inside the container
-#           }
-#         }
-
-#         # Define Volume
-#         volume {
-#           name = "website-volume"
-#           host_path {
-#             path = "/path/to/website" # Host path to 'website' folder in the GitHub repository
-#           }
-#         }
-#       }
-#     }
-#   }
-# }
-
 # # Define Google Cloud Load Balancer
 # resource "google_compute_global_forwarding_rule" "website-forwarding-rule" {
 #   name       = "website-forwarding-rule"
