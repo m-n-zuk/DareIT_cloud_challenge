@@ -22,7 +22,7 @@ env:
   PROJECT_ID: dareit-cloud-challenge
   GAR_LOCATION: us-central1 
   GKE_CLUSTER: dareit-cluster   
-  GKE_ZONE: us-central1-c   
+  GKE_ZONE: us-central1 
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: dareit-repo 
   IMAGE: static-site
@@ -36,8 +36,6 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
-    
-    needs: terraform
 
     steps:
     - name: Checkout
