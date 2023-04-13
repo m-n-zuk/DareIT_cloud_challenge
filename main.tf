@@ -22,28 +22,6 @@ resource "google_container_cluster" "dareit-cluster" {
   }
 }
 
-resource "google_project_trigger" "cb_trigger" {
-  name        = "cb-trigger"
-  project_id  = "dareit-cloud-challenge"
-  description = "cloud build trigger"
-  trigger_template {
-    repo_name   = "m-n-zuk/dareIT_cloud_challenge"
-    branch_name = "main"
-  }
-
-  build {
-    substitutions = {
-      _DOCKERFILE = "Dockerfile" # ścieżka do pliku Dockerfile wewnątrz repozytorium
-    }
-
-    # Konfiguracja procesu budowy
-    steps {
-      name = "gcr.io/cloud-builders/docker"
-      args = ["build", "-t", "gcr.io/dareit-cloud-challenge/website-image", "."]
-    }
-  }
-}
-
 # # Define Kubernetes Deployment for website
 # resource "kubernetes_deployment" "website" {
 #   metadata {
