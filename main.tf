@@ -1,19 +1,23 @@
 # Define Kubernetes cluster
-resource "google_container_cluster" "my_cluster" {
-  name     = "my-cluster"
+resource "google_container_cluster" "dareit-cluster" {
+  name     = "dareit-cluster"
   location = "us-central1-a"
 
-  node_pool {
-    name       = "default-pool"
-    node_count = 1
-    config {
-      machine_type = "n1-standard-1"
+  node_config {
+    machine_type = "n1-standard-1"
+
+    metadata = {
+      disable-legacy-endpoints = "true"
     }
   }
 
-  depends_on = [
-    google_project_service.container.googleapis,
-  ]
+  initial_node_count = 1
+
+  timeouts {
+    create = "30m"
+    update = "30m"
+    delete = "30m"
+  }
 }
 
 # # Define Kubernetes Deployment for website
