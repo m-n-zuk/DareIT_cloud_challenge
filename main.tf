@@ -32,9 +32,6 @@ resource "google_artifact_registry_repository" "dareit-repo" {
 resource "google_project_iam_member" "example" {
   project = "dareit-cloud-challenge"
 
-  location   = "us-central1"
-  repository = "dareit-repo"
-
   role   = "roles/artifactregistry.writer"
   member = "allUsers"
 }
