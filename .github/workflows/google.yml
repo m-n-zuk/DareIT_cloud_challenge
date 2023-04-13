@@ -15,8 +15,8 @@ name: Build and Deploy to GKE
 on:
   push:
     branches: [ "main" ]
-  paths:
-    - 'website/**'
+  # paths:
+  #   - 'website/**'
 
 env:
   PROJECT_ID: dareit-cloud-challenge
