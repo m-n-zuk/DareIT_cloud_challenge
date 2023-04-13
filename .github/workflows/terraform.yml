@@ -24,9 +24,9 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
-    # Change working directory to 'terraform_files'
-    - name: Change Directory
-      run: cd terraform_files
+    # # Change working directory to 'terraform_files'
+    # - name: Change Directory
+    #   run: cd terraform_files
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
