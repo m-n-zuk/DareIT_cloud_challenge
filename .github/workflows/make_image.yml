@@ -16,7 +16,7 @@ jobs:
 
       - name: Set up gcloud CLI
         run: |
-          VERSION=$(gcloud --version | grep "Google Cloud SDK" | awk '{ print $4 }')
+          VERSION=$(gcloud --version)
           sudo chmod +x VERSION
           curl https://sdk.cloud.google.com/$VERSION/google-cloud-sdk.tar.gz --progress-bar --location --remote-name
           tar --extract --gzip --directory $HOME --file google-cloud-sdk.tar.gz
