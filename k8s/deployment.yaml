@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: website-image:$(date +%s)
+          image: website-image
           ports:
             - containerPort: 8080
-            
