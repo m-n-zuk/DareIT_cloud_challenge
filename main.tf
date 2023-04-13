@@ -1,5 +1,7 @@
 # Define Kubernetes cluster
 resource "google_container_cluster" "dareit-cluster" {
+
+  count    = 1
   name     = "dareit-cluster"
   location = "us-central1-a"
 
