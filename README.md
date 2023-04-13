@@ -1,6 +1,6 @@
 # DareIT_cloud_challenge
 
-> description will be here... soon
+> description will be here... soon.
 > very sorry for the delay :'(
-    
-> I am still fighting with kubernetes.
+
+> I am still fighting with kubernetes...
