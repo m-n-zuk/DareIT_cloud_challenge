@@ -1,0 +1,40 @@
+name: 'Build Docker image'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: 'Build and push Docker image'
+    runs-on: ubuntu-latest
+
+    needs: terraform
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up gcloud CLI
+        run: |
+          VERSION=$(gcloud --version | grep "Google Cloud SDK" | awk '{ print $4 }')
+          curl https://sdk.cloud.google.com/$VERSION/google-cloud-sdk.tar.gz --progress-bar --location --remote-name
+          tar --extract --gzip --directory $HOME --file google-cloud-sdk.tar.gz
+          rm google-cloud-sdk.tar.gz
+          echo ${{ secrets.TF_GOOGLE_CREDENTIALS }} | base64 --decode --ignore-garbage > $HOME/gcp-key.json
+          $HOME/google-cloud-sdk/bin/gcloud --quiet components install kubectl
+          $HOME/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file $HOME/gcp-key.json
+          $HOME/google-cloud-sdk/bin/gcloud --quiet config set project dareit-cloud-challenge
+          $HOME/google-cloud-sdk/bin/gcloud --quiet config set compute/zone us-central1-c
+          $HOME/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials dareit-cluster
+      
+      - name: Change working directory to website
+        run: |
+          cd website
+          
+      - name: Build and push Docker image
+        run: |
+          docker build -t website-image .
+          docker tag website-image gcr.io/dareit-cloud-challenge/website-image
+          docker push gcr.io/dareit-cloud-challenge/website-image
