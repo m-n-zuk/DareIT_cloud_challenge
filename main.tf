@@ -4,7 +4,6 @@ resource "google_container_cluster" "dareit-cluster" {
   count    = 1
   name     = "dareit-cluster"
   location = "us-central1"
-  zone     = "us-central1-c"
 
   node_config {
     machine_type = "n1-standard-1"
