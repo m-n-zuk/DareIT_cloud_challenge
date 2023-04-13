@@ -22,6 +22,13 @@ resource "google_container_cluster" "dareit-cluster" {
   }
 }
 
+resource "google_artifact_registry_repository" "dareit-repository" {
+
+  location = "us-central1-a"
+  repository_id = "dareit-repository"
+  format = "apt"
+}
+
 # # Define Kubernetes Deployment for website
 # resource "kubernetes_deployment" "website" {
 #   metadata {
