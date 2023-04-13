@@ -24,6 +24,7 @@ resource "google_container_cluster" "dareit-cluster" {
 
 resource "google_artifact_registry_repository" "dareit-repo" {
 
+  location      = "us-central1"
   repository_id = "dareit-repo"
   format        = "docker"
 }
