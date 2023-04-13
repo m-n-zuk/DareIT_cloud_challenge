@@ -4,8 +4,6 @@ on:
   push:
     branches:
     - main
-    paths:
-    - 'website/**'
 
 jobs:
   terraform:
@@ -26,7 +24,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
-    # Change working directory to 'terraform'
+    # Change working directory to 'terraform_files'
     - name: Change Directory
       run: cd terraform_files
 

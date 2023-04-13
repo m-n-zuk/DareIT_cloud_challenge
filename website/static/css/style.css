@@ -3,6 +3,12 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+img {
+    height: 300px;
+    border: 15px solid rgb(95, 75, 146); 
+    background: rgb(234, 230, 230); padding: 3px;
+}
+
 .header {
     color: rgb(151, 29, 86);
     text-align: center;
