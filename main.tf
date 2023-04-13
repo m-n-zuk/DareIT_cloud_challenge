@@ -9,8 +9,8 @@ resource "google_container_cluster" "cluster" {
 
     # Specify node image
     node_config {
-      image_type = "COS_CONTAINERD"
-      image_family = "cos-89-lts"
+      image_type       = "COS_CONTAINERD"
+      image_family     = "cos-89-lts"
       image_project_id = "cos-cloud"
     }
   }
