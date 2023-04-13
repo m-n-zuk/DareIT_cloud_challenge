@@ -29,13 +29,6 @@ resource "google_artifact_registry_repository" "dareit-repo" {
   format        = "docker"
 }
 
-resource "google_project_iam_member" "example" {
-  project = "dareit-cloud-challenge"
-
-  role   = "roles/artifactregistry.writer"
-  member = "allUsers"
-}
-
 # # Define Google Cloud Load Balancer
 # resource "google_compute_global_forwarding_rule" "website-forwarding-rule" {
 #   name       = "website-forwarding-rule"
