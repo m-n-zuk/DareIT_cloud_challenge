@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: website-image
+          image: LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG
           ports:
             - containerPort: 8080
