@@ -28,10 +28,6 @@ jobs:
     # - name: Change Directory
     #   run: cd terraform_files
 
-    # Install all needed APIs
-    - name: Enable Kubernetes Engine API
-      run: gcloud services enable container.googleapis.com
-
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
