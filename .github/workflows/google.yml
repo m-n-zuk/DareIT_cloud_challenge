@@ -17,10 +17,10 @@ on:
     workflows: ["Terraform Deployment"]
     types:
       - completed
-  # push:
-  #   branches: [ "main" ]
-  # paths:
-  #   - 'website/**'
+  push:
+    branches: [ "main" ]
+  paths:
+    - 'website/**'
 
 env:
   PROJECT_ID: dareit-cloud-challenge
