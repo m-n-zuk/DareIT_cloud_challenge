@@ -17,8 +17,8 @@ on:
     workflows: ["Terraform Deployment"]
     types:
       - completed
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   # paths:
   #   - 'website/**'
 
