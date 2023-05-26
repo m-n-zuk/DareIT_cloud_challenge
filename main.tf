@@ -1,8 +1,8 @@
 # Define Kubernetes cluster
-resource "google_container_cluster" "dareit-cluster" {
+resource "google_container_cluster" "dareit-cluster-1" {
 
   count    = 1
-  name     = "dareit-cluster"
+  name     = "dareit-cluster-1"
   location = "us-central1"
 
   node_config {
@@ -22,10 +22,10 @@ resource "google_container_cluster" "dareit-cluster" {
   # }
 }
 
-resource "google_artifact_registry_repository" "dareit-repo" {
+resource "google_artifact_registry_repository" "dareit-repository" {
 
   location      = "us-central1"
-  repository_id = "dareit-repo"
+  repository_id = "dareit-repository"
   format        = "docker"
 }
 

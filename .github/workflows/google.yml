@@ -25,10 +25,10 @@ on:
 env:
   PROJECT_ID: dareit-cloud-challenge
   GAR_LOCATION: us-central1 
-  GKE_CLUSTER: dareit-cluster   
+  GKE_CLUSTER: dareit-cluster-1   
   GKE_ZONE: us-central1 
   DEPLOYMENT_NAME: gke-deployment
-  REPOSITORY: dareit-repo 
+  REPOSITORY: dareit-repository 
   IMAGE: static-site
 
 jobs:
