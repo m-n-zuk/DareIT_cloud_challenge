@@ -2,6 +2,8 @@ name: 'Terraform CI'
 
 on:
   push:
+    paths:
+      - "**.tf"
     branches:
     - main
 
