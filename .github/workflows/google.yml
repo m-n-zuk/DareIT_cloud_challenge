@@ -74,6 +74,13 @@ jobs:
       run: gcloud auth configure-docker \
         us-central1-docker.pkg.dev
 
+
+    # Permission
+    - name: Add permission
+      run: gcloud projects add-iam-policy-binding $PROJECT_ID \
+        --member=serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }} \
+        --role=roles/artifactregistry.writer
+
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-

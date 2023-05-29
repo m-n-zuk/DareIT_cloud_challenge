@@ -1,0 +1,9 @@
+env:
+  PROJECT_ID: dareit-cloud-challenge-387017
+  GAR_LOCATION: us-central1 
+  GKE_CLUSTER: dareit-cluster-1   
+  GKE_ZONE: us-central1 
+  DEPLOYMENT_NAME: gke-deployment
+  REPOSITORY: dareit-repository 
+  IMAGE: static-site
+  SERVICE_ACCOUNT_EMAIL: service-account@dareit-cloud-challenge-387017.iam.gserviceaccount.com
