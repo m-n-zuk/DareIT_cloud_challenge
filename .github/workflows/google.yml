@@ -24,11 +24,11 @@ on:
 
 env:
   PROJECT_ID: dareit-cloud-challenge-387017
-  GAR_LOCATION: us-central1 
-  GKE_CLUSTER: dareit-cluster-1   
-  GKE_ZONE: us-central1 
+  GAR_LOCATION: us-central1
+  GKE_CLUSTER: dareit-cluster-1
+  GKE_ZONE: us-central1
   DEPLOYMENT_NAME: gke-deployment
-  REPOSITORY: dareit-repository 
+  REPOSITORY: dareit-repository
   IMAGE: static-site
   SERVICE_ACCOUNT_EMAIL: service-account@dareit-cloud-challenge-387017.iam.gserviceaccount.com
 
@@ -83,9 +83,6 @@ jobs:
 
     - name: Add permission 2
       run: gcloud projects add-iam-policy-binding ${{ env.PROJECT_ID }} --member='serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }}' --role='roles/container.clusterAdmin'
-
-    - name: Add permission 3
-      run: gcloud auth login
 
 
     # Push the Docker image to Google Artifact Registry
