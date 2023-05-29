@@ -89,10 +89,6 @@ jobs:
       run: |-
         docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
 
-    # Push the Docker image to Google Artifact Registry
-    - name: Publish test
-      run: |-
-        docker push "us-central1-docker.pkg.dev/dareit-cloud-challenge-387017/test-repo/$IMAGE:$GITHUB_SHA"
 
     # # Set up kustomize
     # - name: Set up Kustomize
