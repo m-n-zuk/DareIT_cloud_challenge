@@ -70,10 +70,10 @@ jobs:
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
     
-    # Configure gcloud as the credential helper for the Artifact Registry domain associated with this repository's location
-    - name: Configure Docker
-      run: gcloud auth configure-docker \
-        us-central1-docker.pkg.dev
+    # # Configure gcloud as the credential helper for the Artifact Registry domain associated with this repository's location
+    # - name: Configure Docker
+    #   run: gcloud auth configure-docker \
+    #     us-central1-docker.pkg.dev
 
 
     # Permission
