@@ -79,8 +79,8 @@ jobs:
     # Permission
     - name: Add permission
       run: gcloud projects add-iam-policy-binding ${{ env.PROJECT_ID }} \
-        --member ${{ env.SERVICE_ACCOUNT_EMAIL }} \
-        --role artifactregistry.admin
+        --member serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }} \
+        --role roles/artifactregistry.admin
 
     # Push the Docker image to Google Artifact Registry
     - name: Publish
