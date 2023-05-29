@@ -78,7 +78,9 @@ jobs:
 
     # Permission
     - name: Add permission 1
-      run: gcloud projects add-iam-policy-binding ${{ env.PROJECT_ID }} --member='serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }}' --role='roles/artifactregistry.writer'
+      # run: gcloud projects add-iam-policy-binding ${{ env.PROJECT_ID }} --member='serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }}' --role='roles/artifactregistry.writer'
+      run: gcloud artifacts repositories add-iam-policy-binding ${{ env.REPOSITORY }} --location=us-central1 --member='serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }}' --role='roles/artifactregistry.writer'
+
     - name: Add permission 2
       run: gcloud projects add-iam-policy-binding ${{ env.PROJECT_ID }} --member='serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }}' --role='roles/container.clusterAdmin'
 
