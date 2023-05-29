@@ -14,12 +14,6 @@ resource "google_container_cluster" "dareit-cluster-1" {
   }
 
   initial_node_count = 1
-
-  # timeouts {
-  #   create = "30m"
-  #   update = "30m"
-  #   delete = "30m"
-  # }
 }
 
 resource "google_artifact_registry_repository" "dareit-repository" {
