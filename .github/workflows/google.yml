@@ -13,10 +13,10 @@
 name: Build and Deploy to GKE
 
 on:
-  # workflow_run:
-  #   workflows: ["Terraform Deployment"]
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows: ["Terraform Deployment"]
+    types:
+      - completed
   push:
     branches: [ "main" ]
   # paths:
