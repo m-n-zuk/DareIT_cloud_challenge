@@ -68,8 +68,6 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 
 ## Steps of the task
 
-*[description in progress]*
-
 **1. Preparation of the work environment**
 
 - creating GCP account
