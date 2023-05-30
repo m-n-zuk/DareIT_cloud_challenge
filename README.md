@@ -1,7 +1,7 @@
 # "DareIT Cloud Challenge - final project" *(the last task)*
 > This project is the culmination of 9 weeks of work as part of the dare IT challenge and getting to know the cloud, and an opportunity to further develop and learn more functionalities offered by GCP.
 > 
-> long story short: this project is about how to deploy simple static website on GCP 
+> *long story short*: this project is about how to deploy simple static website on GCP 
 > 
 
 
@@ -9,10 +9,11 @@
 ## Table of Contents
 * [About the task](#about-the-task)
 * [Technologies Used](#technologies-used)
-* [Steps of the task](#steps-of-the-task) <!-- * [Usage](#usage) -->
-* [Project Status](#project-status) <!-- * [Room for Improvement](#room-for-improvement) -->
-* [Inspiration](#inspiration)
-* [Contact](#contact) <!-- * [License](#license) -->
+* [Steps of the task](#steps-of-the-task)
+* [Project Status](#project-status) 
+* [Room for Improvement](#room-for-improvement)
+<!--* [Inspiration](#inspiration)-->
+* [Contact](#contact) 
 
 
 
@@ -39,16 +40,18 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 5. Automate the deployment of your application using CI/CD
 
 
-***Bonus:***
-1. *Provide and document a mechanism for scaling the service and delivering the content to a larger audience*
-2. *Demonstrate that you have considered how a real-world solution will be hosted and scaled.*
-3. *Explain your choices.*
+> ***Bonus:***
+> 1. *Provide and document a mechanism for scaling the service and delivering the content to a larger audience*
+> 2. *Demonstrate that you have considered how a real-world solution will be hosted and scaled.*
+> 3. *Explain your choices.*
+> 
+> **Another bonus:**
+> 
+> - *Create Cloud Function that lists all VPCs and Subnets in the project and saves the data in a file that is stored in a bucket OR saves the data in the database (you can choose the database as well as the format in which you want to save the data).*
+> - *Requirements:*
+> *Provide source code for the function and any other code in a publicly available repository e.g. Github (https://github.com)*
 
-**Another bonus:**
 
-- *Create Cloud Function that lists all VPCs and Subnets in the project and saves the data in a file that is stored in a bucket OR saves the data in the database (you can choose the database as well as the format in which you want to save the data).*
-- *Requirements:*
-*Provide source code for the function and any other code in a publicly available repository e.g. Github (https://github.com)*
 
 ## Technologies Used
 
@@ -81,7 +84,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 **2. Prepare GitHub repository**
 - create and `clone` to my computer
 - create folder with `static_website`
-> I thought that, as part of this task, I could deploy my application written in Django... but I miscalculated 🙈 definitely knowledge in the field of GCP still needs to settle in my head :) but I will definitely come back to this!
+> I thought that, as part of this task, I could deploy [my web application](https://github.com/m-n-zuk/ibd_maternity) written in Django... but I miscalculated 🙈 knowledge in the field of GCP needs to settle in my head definitely :) but I will come back to this for sure!
 - and start thinking what should be next...
 
 **3. Terraform files**
@@ -122,13 +125,17 @@ kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --t
 
 *[description in progress]*
 
+
 ## Project Status
+
 Project is: _in progress_
 
 
 ## Room for Improvement
 
 To do:
+- consider divide my workflow
+> when we change something in `website` folder - create new image and replace only, but when we change something more, connecting with deployment - whole deployment process will start again
 - bonus (cloud function)
 - static IP for my website
 - 'cleaning' in .yml files
