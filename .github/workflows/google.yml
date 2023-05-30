@@ -95,5 +95,6 @@ jobs:
         kubectl apply --force -f k8s/
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
+        kubectl delete service $DEPLOYMENT_NAME-service
         kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --type=LoadBalancer --port 80 --target-port 80
    
