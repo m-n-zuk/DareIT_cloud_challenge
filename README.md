@@ -1,10 +1,11 @@
 # Dare[IT](https://www.dareit.io/challenges/cloud)`_challenge` 
 **Cloud + Platform Engineer** 
-
+<br><br>
 > This project is the culmination of 9 weeks of work as part of the DareIT challenge and getting to know the cloud, and an opportunity to further develop and learn more functionalities offered by GCP.
 > 
 > *long story short*: this project is about how to deploy simple static website on GCP 
-> 
+<br>
+
 **[`CLICK HERE`](http://34.132.17.249/) to see the results 🚀**
 
 <br>
