@@ -19,6 +19,8 @@ on:
       - completed
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'README.md'
   # paths:
   #   - 'website/**'
 
