@@ -83,24 +83,16 @@ jobs:
     # - name: Add role
     #   run: gcloud artifacts repositories add-iam-policy-binding ${{ env.REPOSITORY }} --location=us-central1 --member='serviceAccount:${{ env.SERVICE_ACCOUNT_EMAIL }}' --role='roles/artifactregistry.admin'
 
-
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
         docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
 
-
-    # # Set up kustomize
-    # - name: Set up Kustomize
-    #   run: |-
-    #     curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-    #     chmod u+x ./kustomize
-
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |- # Zmiana nazwy obrazu w pliku YAML
         sed -i "s,LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG,$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA,g" k8s/deployment.yaml
-        kubectl apply -f k8s/
+        kubectl apply --force -f k8s/
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
         kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --type=LoadBalancer --port 80 --target-port 80
