@@ -21,7 +21,6 @@ on:
     branches: [ "main" ]
   paths:
     - 'website/**'
-  #   - "**.yml"
 
 env:
   PROJECT_ID: dareit-cloud-challenge-387017
