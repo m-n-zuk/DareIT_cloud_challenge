@@ -1,4 +1,4 @@
-# Dare[IT](https://www.dareit.io/challenges/cloud)`_challenges` 
+# Dare[IT](https://www.dareit.io/challenges/cloud)`_challenge` 
 **Cloud + Platform Engineer** 
 
 > This project is the culmination of 9 weeks of work as part of the DareIT challenge and getting to know the cloud, and an opportunity to further develop and learn more functionalities offered by GCP.
