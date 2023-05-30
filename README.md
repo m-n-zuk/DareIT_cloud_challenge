@@ -3,6 +3,8 @@
 > 
 > *long story short*: this project is about how to deploy simple static website on GCP 
 > 
+> [click here](http://34.132.17.249/) to see the results 🚀
+>
 
 
 
