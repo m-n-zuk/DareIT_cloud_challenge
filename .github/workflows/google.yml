@@ -92,9 +92,12 @@ jobs:
     - name: Deploy
       run: |- # Zmiana nazwy obrazu w pliku YAML
         sed -i "s,LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG,$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA,g" k8s/deployment.yaml
-        kubectl apply --force -f k8s/
+        kubectl apply -f k8s/
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
+
+    - name: Load Balancer
+      run: |-        
         kubectl delete service $DEPLOYMENT_NAME-service
         kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --type=LoadBalancer --port 80 --target-port 80
    
