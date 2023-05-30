@@ -1,9 +1,11 @@
-# "DareIT Cloud Challenge - final project" *(the last task)*
-> This project is the culmination of 9 weeks of work as part of the dare IT challenge and getting to know the cloud, and an opportunity to further develop and learn more functionalities offered by GCP.
+# Dare[IT](https://www.dareit.io/challenges/cloud)`_challenges` 
+**Cloud + Platform Engineer** 
+
+> This project is the culmination of 9 weeks of work as part of the DareIT challenge and getting to know the cloud, and an opportunity to further develop and learn more functionalities offered by GCP.
 > 
 > *long story short*: this project is about how to deploy simple static website on GCP 
 > 
-> [click here](http://34.132.17.249/) to see the results 🚀
+> **[`CLICK HERE`](http://34.132.17.249/) to see the results 🚀**
 >
 
 
