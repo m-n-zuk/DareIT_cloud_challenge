@@ -5,9 +5,9 @@
 > 
 > *long story short*: this project is about how to deploy simple static website on GCP 
 > 
-> **[`CLICK HERE`](http://34.132.17.249/) to see the results 🚀**
->
+**[`CLICK HERE`](http://34.132.17.249/) to see the results 🚀**
 
+<br>
 
 
 ## Table of Contents
@@ -15,11 +15,10 @@
 * [Technologies Used](#technologies-used)
 * [Steps of the task](#steps-of-the-task)
 * [Project Status](#project-status) 
-* [Room for Improvement](#room-for-improvement) <!--* [Inspiration](#inspiration)-->
+* [Room for Improvement](#room-for-improvement)
 * [Contact](#contact) 
 
-
-
+<br>
 
 ## About the task
 
@@ -54,7 +53,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 > - *Requirements:*
 > *Provide source code for the function and any other code in a publicly available repository e.g. Github (https://github.com)*
 
-
+<br>
 
 ## Technologies Used
 
@@ -65,7 +64,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 - Docker
 - CI/CD
 
-
+<br>
 
 ## Steps of the task
 
@@ -128,11 +127,13 @@ kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --t
 
 *[description in progress]*
 
+<br>
 
 ## Project Status
 
 Project is: _in progress_
 
+<br>
 
 ## Room for Improvement
 
@@ -143,10 +144,7 @@ To do:
 - static IP for my website
 - 'cleaning' in .yml files
 
-
-<!-- ## Inspiration
-powered by DareIT. -->
-
+<br>
 
 ## Contact
 Created by [Magdalena Żuk](https://www.linkedin.com/in/m-n-zuk/) - feel free to contact me!
