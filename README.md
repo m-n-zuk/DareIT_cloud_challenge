@@ -21,7 +21,7 @@
 
 <br>
 
-## About the task
+## About the task 📝
 
 **Brief:**
 
@@ -41,7 +41,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 3. Provide basic setup documentation to run the application
 4. All resources should be deployed using Terraform
 5. Automate the deployment of your application using CI/CD
-
+<br>
 
 > **Bonus:**
 > 1. Provide and document a mechanism for scaling the service and delivering the content to a larger audience
@@ -52,13 +52,13 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 > 
 > - Create Cloud Function that lists all VPCs and Subnets in the project and saves the data in a file that is stored in a bucket OR saves the data in the database (you can choose the database as well as the format in which you want to save the data).
 > - *Requirements:*
-> *Provide source code for the function and any other code in a publicly available repository e.g. Github (https://github.com)*
+> Provide source code for the function and any other code in a publicly available repository e.g. Github (https://github.com)
 
 <br>
 
-## Technologies Used
+## Technologies Used ⚙️
 
-> To deploy my static website I decidedcto choose Kubernetes Cluster - I don't think it made sense to use such an advanced tool, but I did it for educational purposes :) 
+> To deploy my static website I decided to choose Kubernetes Cluster - I don't think it made sense to use such an advanced tool, but I did it for educational purposes :) 
 - GCP
 - Terraform
 - Kubernetes cluster
@@ -67,7 +67,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 
 <br>
 
-## Steps of the task
+## Steps of the project 👩‍💻 
 
 **1. Preparation of the work environment**
 
@@ -128,13 +128,13 @@ kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --t
 
 <br>
 
-## Project Status
+## Project Status ⏳
 
 Project is: _in progress_
 
 <br>
 
-## Room for Improvement
+## Room for Improvement 🛠️
 
 To do:
 - consider divide my workflow
@@ -145,5 +145,5 @@ To do:
 
 <br>
 
-## Contact
+## Contact ☎️
 Created by [Magdalena Żuk](https://www.linkedin.com/in/m-n-zuk/) - feel free to contact me!
