@@ -107,7 +107,7 @@ on:
     - main
 ```
 - create 'google.yml'
-> After many hours of research and testing various non-working solutions I decided to use a template from Github: <br> `Actions`/`New workflow`/`Build and Deploy to GKE`... and of course (at the beggining) It doesn't work too 🤡 But, using this, I was finally on right way to complete my task :) templates are a good thing :)
+> After many hours of research and testing various non-working solutions I decided to use a template from Github: <br> `Actions`/`New workflow`/`Build and Deploy to GKE`... and of course (at the beggining) it doesn't work too 🤡 But using this, I was finally on right way to complete my task :) templates are good things :)
   - in this workflow are many new steps like: *Build the Docker image*, *Push the Docker image to Google Artifact Registry* or *Deploy the Docker image to the GKE cluster* which we can see in `google.yml` file.
 > veeery complicated step (compared to create a bucket) for a beginner in the Cloud :) a lot of new elements and related configuration issues
 
