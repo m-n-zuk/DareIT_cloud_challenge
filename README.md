@@ -11,8 +11,7 @@
 * [Technologies Used](#technologies-used)
 * [Steps of the task](#steps-of-the-task)
 * [Project Status](#project-status) 
-* [Room for Improvement](#room-for-improvement)
-<!--* [Inspiration](#inspiration)-->
+* [Room for Improvement](#room-for-improvement) <!--* [Inspiration](#inspiration)-->
 * [Contact](#contact) 
 
 
@@ -40,14 +39,14 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 5. Automate the deployment of your application using CI/CD
 
 
-> ***Bonus:***
-> 1. *Provide and document a mechanism for scaling the service and delivering the content to a larger audience*
-> 2. *Demonstrate that you have considered how a real-world solution will be hosted and scaled.*
-> 3. *Explain your choices.*
+> **Bonus:**
+> 1. Provide and document a mechanism for scaling the service and delivering the content to a larger audience
+> 2. Demonstrate that you have considered how a real-world solution will be hosted and scaled.
+> 3. Explain your choices.
 > 
 > **Another bonus:**
 > 
-> - *Create Cloud Function that lists all VPCs and Subnets in the project and saves the data in a file that is stored in a bucket OR saves the data in the database (you can choose the database as well as the format in which you want to save the data).*
+> - Create Cloud Function that lists all VPCs and Subnets in the project and saves the data in a file that is stored in a bucket OR saves the data in the database (you can choose the database as well as the format in which you want to save the data).
 > - *Requirements:*
 > *Provide source code for the function and any other code in a publicly available repository e.g. Github (https://github.com)*
 
