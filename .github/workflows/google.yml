@@ -19,8 +19,9 @@ on:
       - completed
   push:
     branches: [ "main" ]
-  # paths:
-  #   - 'website/**'
+  paths:
+    - 'website/**'
+    - "**.yml"
 
 env:
   PROJECT_ID: dareit-cloud-challenge-387017
