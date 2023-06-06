@@ -118,13 +118,203 @@ on:
 kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --type=LoadBalancer --port 80 --target-port 80
 ```
 - reasons for my decision:
-  - `High Availability`: Load balancers distribute incoming traffic across multiple instances of your website, ensuring that if one instance fails or becomes overwhelmed, the traffic is automatically routed to healthy instances.
-  - `Scalability`: Load balancers can easily handle increased traffic and allow you to scale your website horizontally by adding more instances. As the demand for your website grows, load balancers automatically distribute traffic evenly among the instances, ensuring optimal performance and responsiveness.
-  - `Traffic Management`: Load balancers can perform advanced traffic management techniques, such as session affinity, content-based routing, and URL-based routing. These features allow you to direct traffic to specific instances or versions of your website based on various criteria, enhancing the user experience and enabling A/B testing or gradual feature rollouts.
+  - `High Availability` Load balancers distribute incoming traffic across multiple instances of your website, ensuring that if one instance fails or becomes overwhelmed, the traffic is automatically routed to healthy instances.
+  - `Scalability` Load balancers can easily handle increased traffic and allow you to scale your website horizontally by adding more instances. As the demand for your website grows, load balancers automatically distribute traffic evenly among the instances, ensuring optimal performance and responsiveness.
+  - `Traffic Management` Load balancers can perform advanced traffic management techniques, such as session affinity, content-based routing, and URL-based routing. These features allow you to direct traffic to specific instances or versions of your website based on various criteria, enhancing the user experience and enabling A/B testing or gradual feature rollouts.
 
 **6. Cloud Function**
 
-*[description in progress]*
+- create bucket which will storage data about VPCs and Subnets
+- create Cloud Function:
+  - we need to enable the following APIs to use Cloud Functions:
+    - Cloud Build API
+    - Cloud Functions API
+    - Cloud Logging API
+    - Cloud Pub/Sub API
+  - make sure, that we have installed Google Cloud Storage client libraries and Google Cloud Compute:
+    `pip install --upgrade google-cloud-storage google-cloud-compute`
+  - we have to add `Cloud Functions Invoker` permission for `allUsers` in order to enter the URL  
+  - trigger: HTTP (when we enter the URL, the function will start)
+  - code in Python:
+  
+  **`main.py`**
+  ```python
+  [  i n   p r o g r e s s  ]
+  ```
+  **`requirements.txt`**
+  ```
+  google.cloud.storage==2.9.0
+  google.cloud.compute==1.11.0
+  ```
+  <br>
+>**...this task using CloudShell:**
+
+>VPC:  **`gcloud compute networks list`**
+   
+   ```
+   NAME: default
+   SUBNET_MODE: AUTO
+   BGP_ROUTING_MODE: REGIONAL
+   IPV4_RANGE: 
+   GATEWAY_IPV4: 
+   ```
+>Subnetworks: **`gcloud compute networks subnets list --network=default --format="table[box](name,region,ipCidrRange)"`** 
+>(I added `--format` because the list was very long)
+  
+   ```
+   NAME: default
+   REGION: us-central1
+   RANGE: 10.128.0.0/20
+
+   NAME: default
+   REGION: europe-west1
+   RANGE: 10.132.0.0/20
+
+   NAME: default
+   REGION: us-west1
+   RANGE: 10.138.0.0/20
+
+   NAME: default
+   REGION: asia-east1
+   RANGE: 10.140.0.0/20
+
+   NAME: default
+   REGION: us-east1
+   RANGE: 10.142.0.0/20
+
+   NAME: default
+   REGION: asia-northeast1
+   RANGE: 10.146.0.0/20
+
+   NAME: default
+   REGION: asia-southeast1
+   RANGE: 10.148.0.0/20
+
+   NAME: default
+   REGION: us-east4
+   RANGE: 10.150.0.0/20
+
+   NAME: default
+   REGION: australia-southeast1
+   RANGE: 10.152.0.0/20
+
+   NAME: default
+   REGION: europe-west2
+   RANGE: 10.154.0.0/20
+
+   NAME: default
+   REGION: europe-west3
+   RANGE: 10.156.0.0/20
+
+   NAME: default
+   REGION: southamerica-east1
+   RANGE: 10.158.0.0/20
+ 
+   NAME: default
+   REGION: asia-south1
+   RANGE: 10.160.0.0/20
+
+   NAME: default
+   REGION: northamerica-northeast1
+   RANGE: 10.162.0.0/20
+
+   NAME: default
+   REGION: europe-west4
+   RANGE: 10.164.0.0/20
+
+   NAME: default
+   REGION: europe-north1
+   RANGE: 10.166.0.0/20
+
+   NAME: default
+   REGION: us-west2
+   RANGE: 10.168.0.0/20
+
+   NAME: default
+   REGION: asia-east2
+   RANGE: 10.170.0.0/20
+
+   NAME: default
+   REGION: europe-west6
+   RANGE: 10.172.0.0/20
+
+   NAME: default
+   REGION: asia-northeast2
+   RANGE: 10.174.0.0/20
+
+   NAME: default
+   REGION: asia-northeast3
+   RANGE: 10.178.0.0/20
+
+   NAME: default
+   REGION: us-west3
+   RANGE: 10.180.0.0/20
+
+   NAME: default
+   REGION: us-west4
+   RANGE: 10.182.0.0/20
+
+   NAME: default
+   REGION: asia-southeast2
+   RANGE: 10.184.0.0/20
+
+   NAME: default
+   REGION: europe-central2
+   RANGE: 10.186.0.0/20
+
+   NAME: default
+   REGION: northamerica-northeast2
+   RANGE: 10.188.0.0/20
+
+   NAME: default
+   REGION: asia-south2
+   RANGE: 10.190.0.0/20
+
+   NAME: default
+   REGION: australia-southeast2
+   RANGE: 10.192.0.0/20
+
+   NAME: default
+   REGION: southamerica-west1
+   RANGE: 10.194.0.0/20
+
+   NAME: default
+   REGION: us-east7
+   RANGE: 10.196.0.0/20
+
+   NAME: default
+   REGION: europe-west8
+   RANGE: 10.198.0.0/20
+
+   NAME: default
+   REGION: europe-west9
+   RANGE: 10.200.0.0/20
+
+   NAME: default
+   REGION: us-east5
+   RANGE: 10.202.0.0/20
+
+   NAME: default
+   REGION: europe-southwest1
+   RANGE: 10.204.0.0/20
+
+   NAME: default
+   REGION: us-south1
+   RANGE: 10.206.0.0/20
+
+   NAME: default
+   REGION: me-west1
+   RANGE: 10.208.0.0/20
+
+   NAME: default
+   REGION: europe-west12
+   RANGE: 10.210.0.0/20
+
+   NAME: default
+   REGION: me-central1
+   RANGE: 10.212.0.0/20 
+   ```
+
 
 <br>
 
