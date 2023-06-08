@@ -12,12 +12,12 @@
 
 
 ## Table of Contents
-* [About the task](#about-the-task)
-* [Technologies Used](#technologies-used)
-* [Steps of the task](#steps-of-the-task)
+* [About the task](#about-the-task-📝)
+* [Technologies Used](#technologies-used-⚙️)
+* [Steps of the task](#steps-of-the-task-👩‍)
 * [Project Status](#project-status) 
-* [Room for Improvement](#room-for-improvement)
-* [Contact](#contact) 
+* [Room for Improvement](#room-for-improvement-⏳)
+* [Contact](#contact-☎️) 
 
 <br>
 
