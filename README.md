@@ -67,7 +67,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 
 <br>
 
-## Steps of the project :woman_technologist:💻 
+## Steps of the project :woman_technologist: 
 
 **1. Preparation of the work environment**
 
