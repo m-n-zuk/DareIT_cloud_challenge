@@ -12,16 +12,16 @@
 
 
 ## Table of Contents
-* [About the task](#about-the-task-📝)
-* [Technologies Used](#technologies-used-⚙️)
-* [Steps of the task](#steps-of-the-task-👩‍)
-* [Project Status](#project-status) 
-* [Room for Improvement](#room-for-improvement-⏳)
-* [Contact](#contact-☎️) 
+* [About the task](#about-the-task-:memo:)
+* [Technologies Used](#technologies-used-:gear:)
+* [Steps of the task](#steps-of-the-task-:woman_technologist:)
+* [Project Status](#project-status-:hourglass_flowing_sand:) 
+* [Room for Improvement](#room-for-improvement-:hammer_and_wrench:)
+* [Contact](#contact-:telephone_receiver:) 
 
 <br>
 
-## About the task 📝
+## About the task :memo:
 
 **Brief:**
 
@@ -56,7 +56,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 
 <br>
 
-## Technologies Used ⚙️
+## Technologies Used :gear:
 
 > To deploy my static website I decided to choose Kubernetes Cluster - I don't think it made sense to use such an advanced tool, but I did it for educational purposes :) 
 - GCP
@@ -67,7 +67,7 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 
 <br>
 
-## Steps of the project 👩‍💻 
+## Steps of the project :woman_technologist:💻 
 
 **1. Preparation of the work environment**
 
@@ -369,13 +369,13 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 
 <br>
 
-## Project Status ⏳
+## Project Status :hourglass_flowing_sand:
 
 Project is: _in progress_
 
 <br>
 
-## Room for Improvement 🛠️
+## Room for Improvement :hammer_and_wrench:
 
 To do:
 - consider divide my workflow
@@ -385,5 +385,5 @@ To do:
 
 <br>
 
-## Contact ☎️
+## Contact :telephone_receiver:
 Created by [Magdalena Żuk](https://www.linkedin.com/in/m-n-zuk/) - feel free to contact me!
