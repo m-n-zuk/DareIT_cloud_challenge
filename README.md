@@ -17,7 +17,7 @@
 * [Steps of the task](#steps-of-the-task-:woman_technologist:)
 * [Project Status](#project-status-:hourglass_flowing_sand:) 
 * [Room for Improvement](#room-for-improvement-:hammer_and_wrench:)
-* [Contact](#contact-) 
+* [Contact](#contact-:telephone_receiver:) 
 
 <br>
 
