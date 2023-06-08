@@ -98,15 +98,15 @@ This proof of concept is to demonstrate the technical feasibility of hosting, ma
 **4. Workflows**
 - create `terraform.yml` (very similar as in task 7.)
 > I decided to add this lines, to build  infrastructure again only when we made changes in .tf files:
-```yaml
-on:
-  push:
-    paths:
-      - "**.tf"
-    branches:
-    - main
-```
-- create 'google.yml'
+>  ```yaml
+>  on:
+>    push:
+>      paths:
+>        - "**.tf"
+>      branches:
+>      - main
+>  ```
+- create `google.yml`
 > After many hours of research and testing various non-working solutions I decided to use a template from Github: <br> `Actions`/`New workflow`/`Build and Deploy to GKE`... and of course (at the beggining) it doesn't work too 🤡 But using this, I was finally on right way to complete my task :) templates are good things :)
   - in this workflow are many new steps like: *Build the Docker image*, *Push the Docker image to Google Artifact Registry* or *Deploy the Docker image to the GKE cluster* which we can see in `google.yml` file.
 > veeery complicated step (compared to create a bucket) for a beginner in the Cloud :) a lot of new elements and related configuration issues
@@ -114,9 +114,9 @@ on:
 **5. Load Balancer**
 
 - choose *load balancer* to host and scale my website:
-```yaml
-kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --type=LoadBalancer --port 80 --target-port 80
-```
+  ```yaml
+  kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --type=LoadBalancer --port 80 --target-port 80
+  ```
 - reasons for my decision:
   - `High Availability` Load balancers distribute incoming traffic across multiple instances of your website, ensuring that if one instance fails or becomes overwhelmed, the traffic is automatically routed to healthy instances.
   - `Scalability` Load balancers can easily handle increased traffic and allow you to scale your website horizontally by adding more instances. As the demand for your website grows, load balancers automatically distribute traffic evenly among the instances, ensuring optimal performance and responsiveness.
@@ -124,40 +124,91 @@ kubectl expose deployment $DEPLOYMENT_NAME --name="$DEPLOYMENT_NAME-service" --t
 
 **6. Cloud Function**
 
-- create bucket which will storage data about VPCs and Subnets
-- create Cloud Function:
-  - we need to enable the following APIs to use Cloud Functions:
-    - Cloud Build API
-    - Cloud Functions API
-    - Cloud Logging API
-    - Cloud Pub/Sub API
-  - make sure, that we have installed Google Cloud Storage client libraries and Google Cloud Compute:
+- create `bucket` which will storage data about VPCs and Subnets
+- create `Cloud Function`:
+  - we need to enable the following `APIs` to use Cloud Functions:
+    - *Cloud Build API*
+    - *Cloud Functions API*
+    - *Cloud Logging API*
+    - *Cloud Pub/Sub API*
+  - make sure, that we have installed *Google Cloud Storage* client libraries and *Google Cloud Compute*: <br>
     `pip install --upgrade google-cloud-storage google-cloud-compute`
-  - we have to add `Cloud Functions Invoker` permission for `allUsers` in order to enter the URL  
-  - trigger: HTTP (when we enter the URL, the function will start)
+  - we have to add *Cloud Functions Invoker* permission for *allUsers* in order to enter the URL  
+  - trigger: HTTP (when we enter the [URL](https://us-central1-dareit-cloud-challenge-387017.cloudfunctions.net/list_vpc_and_subnets), the function will start)
   - code in Python:
   
-  **`main.py`**
-  ```python
-  [  i n   p r o g r e s s  ]
-  ```
-  **`requirements.txt`**
-  ```
-  google.cloud.storage==2.9.0
-  google.cloud.compute==1.11.0
-  ```
+    **`main.py`**
+    ```python
+    import json
+    from google.cloud import storage
+    from google.cloud import compute_v1
+
+
+    def list_vpc_and_subnets(request):
+
+      request_json = request.get_json()
+
+      if request.args and 'message' in request.args:
+        return request.args.get('message')
+
+      elif request_json and 'message' in request_json:
+          return request_json['message']
+
+      else:
+
+        project_id = "dareit-cloud-challenge-387017"
+        bucket_name = "vpcs_subnets"
+        file_name = "vpc_and_subnets"
+        region = "us-central1"
+
+        # Compute Engine client initialization
+        compute_client = compute_v1.NetworksClient()
+
+        # VPC list download
+        vpc_list = compute_client.list(project=project_id)
+
+        # creating a list of VPCs and subnets
+        vpc_subnets = []
+        for vpc in vpc_list:
+          vpc_name = vpc.name
+          subnets = compute_v1.SubnetworksClient().list(project=project_id, region=region)
+          subnets_list = [subnet.name for subnet in subnets]
+          vpc_subnets.append({
+            'VPC': vpc_name,
+            'Subnets': subnets_list
+          })
+    
+        # saving data to a JSON file
+        data_in_json = json.dumps(vpc_subnets)
+
+        # Storage client initialization
+        storage_client = storage.Client()
+
+        # saving data to a file in the Storage Bucket
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(file_name)
+        blob.upload_from_string(data_in_json)
+
+        return f"The data has been saved to the file [{file_name}] in the bucket [{bucket_name}]: <br>{vpc_subnets}"
+    ```
+
+    **`requirements.txt`**
+    ```
+    google.cloud.storage==2.9.0
+    google.cloud.compute==1.11.0
+    ```
   <br>
 >**...this task using CloudShell:**
 
 >VPC:  **`gcloud compute networks list`**
    
-   ```
-   NAME: default
-   SUBNET_MODE: AUTO
-   BGP_ROUTING_MODE: REGIONAL
-   IPV4_RANGE: 
-   GATEWAY_IPV4: 
-   ```
+>   ```
+>   NAME: default
+>   SUBNET_MODE: AUTO
+>   BGP_ROUTING_MODE: REGIONAL
+>   IPV4_RANGE: 
+>   GATEWAY_IPV4: 
+>   ```
 >Subnetworks: **`gcloud compute networks subnets list --network=default --format="table[box](name,region,ipCidrRange)"`** 
 >(I added `--format` because the list was very long)
   
@@ -329,7 +380,6 @@ Project is: _in progress_
 To do:
 - consider divide my workflow
 > when we change something in `website` folder - create new image and replace only, but when we change something more, connecting with deployment - whole deployment process will start again
-- bonus (cloud function)
 - static IP for my website
 - 'cleaning' in .yml files
 
